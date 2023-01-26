@@ -4,7 +4,8 @@
   "description": "User-friendly API for deciphering abbreviated IT terms.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js",
+    "dev": "nodemon index.js",
+    "start": "node index.js",
     "pretty": "npx prettier --write ."
   },
   "repository": {

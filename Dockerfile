@@ -5,7 +5,7 @@ FROM node:19.5.0-alpine3.17
 COPY package*.json ./
 
 # Install the application dependencies
-RUN npm install
+RUN npm install --omit=dev
 
 # Copy the rest of the application files to the container
 COPY . .
