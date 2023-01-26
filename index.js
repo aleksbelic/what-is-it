@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const port = 3003;
+const port = 3000;
 const abbrList = require('./abbr-list.json');
 
 app.get('/', (req, res) => {
   res.send(
-    'Welcome to "What is IT" - user-friendly API for deciphering abbreviated IT terms'
+    `Welcome to "What is IT" - a user-friendly API for deciphering abbreviated IT terms 📚`
   );
 });
 
@@ -24,5 +24,5 @@ app.get('/:abbr', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Yippee Ki-Yay! 🙌\n"What is IT" API is up & running... 🥳`);
 });

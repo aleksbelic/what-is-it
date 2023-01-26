@@ -4,6 +4,7 @@
   "description": "User-friendly API for deciphering abbreviated IT terms.",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -11,8 +12,8 @@
     "url": "git+https://github.com/aleksbelic/what-is-it-api.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Aleksandar Belic Aleksanchez",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/aleksbelic/what-is-it-api/issues"
   },
