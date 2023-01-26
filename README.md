@@ -2,6 +2,18 @@
 
 Welcome to `What is IT` - a user-friendly API for deciphering abbreviated IT terms.
 
+Start API server:
+
+```
+$ npm start
+```
+
+Format code with Prettier:
+
+```
+$ npm run pretty
+```
+
 ## DEV
 
 Build Docker image from project root:
@@ -28,7 +40,7 @@ Create new container from image:
 $ docker run -p {YOUR_PORT}:3000 --name {YOUR_NEW_CONTAINER_NAME} aleksbelic/what-is-it-api
 ```
 
-e.g.
+e.g.:
 
 ```
 $ docker run -p 3003:3000 --name what-is-it-api aleksbelic/what-is-it-api
