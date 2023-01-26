@@ -1,7 +1,7 @@
 {
   "name": "what-is-it-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "User-friendly API for deciphering abbreviated IT terms.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -3,7 +3,27 @@
   "AI": "Artificial Intelligence",
   "API": "Application Programming Interface",
   "ASCII": "American Standard Code for Information Interchange",
+  "AV": "Antivirus",
+  "AWS": "Amazon Web Services",
+  "B2B": "Business-to-Business",
+  "B2C": "Business-to-Consumer",
+  "B2E": "Business-to-Employee",
+  "BASH": "Bourne Again Shell",
+  "BIOS": "Basic Input Output System",
+  "BLOB": "Binary Large Object",
+  "DOS": [
+    "Denial of Service",
+    "Disk Operating System"
+  ],
+  "IBM": "International Business Machines",
+  "HP": "Hewlett-Packard",
+  "IEEE": "Institute of Electrical and Electronics Engineers",
+  "IP": "Internet Protocol",
   "IT": "Information Technology",
   "K8S": "Kubernetes",
-  "REST": "Representational State Transfer"
+  "REST": "Representational State Transfer",
+  "TCP": "Transmission Control Protocol",
+  "WIFI": "Wireless Fidelity",
+  "WLAN": "Wireless Local Area Network",
+  "WWW": "World Wide Web"
 }
