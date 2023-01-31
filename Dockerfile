@@ -11,7 +11,7 @@ RUN npm install --omit=dev
 COPY . .
 
 # Expose the port that the container will listen on
-EXPOSE 3000
+EXPOSE 3003
 
 # Specify the command to run when the container starts
 CMD ["npm", "start"]

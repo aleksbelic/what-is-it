@@ -43,13 +43,13 @@ $ docker scan aleksbelic/what-is-it-api
 Create new container from image:
 
 ```
-$ docker run -p {YOUR_PORT}:3000 --name {YOUR_NEW_CONTAINER_NAME} aleksbelic/what-is-it-api
+$ docker run -p {YOUR_PORT}:3003 --name {YOUR_NEW_CONTAINER_NAME} aleksbelic/what-is-it-api
 ```
 
 e.g.:
 
 ```
-$ docker run -p 3003:3000 --name what-is-it-api aleksbelic/what-is-it-api
+$ docker run -p 3001:3003 --name what-is-it-api aleksbelic/what-is-it-api
 ```
 
 Run your new container:
