@@ -1,44 +1,40 @@
 import React, {useState, useEffect} from 'react';
+import {Inter} from '@next/font/google';
+
+const interFont = Inter({subsets: ['latin']});
 
 export default function AbbrListComponent() {
   const [filterValue, setFilterValue] = useState('');
   const [abbrList, setAbbrList] = useState({});
-  const [filteredAbbrList, setFilteredAbbrList] = useState({});
 
   useEffect(() => {
     fetch('http://localhost:3000/api/v1/list')
       .then(response => response.json())
-      .then(json => {
-        setFilteredAbbrList(json);
-        setAbbrList(json);
-      });
+      .then(json => setAbbrList(json));
   }, []);
 
   const handleFilterValueChange = e => {
     let newFilterValue = e.target.value.toUpperCase();
     setFilterValue(newFilterValue);
-    if (newFilterValue !== '') {
-      setFilteredAbbrList(
-        Object.fromEntries(
-          Object.entries(abbrList).filter(([abbrKey, abbrValue]) =>
-            abbrKey.includes(newFilterValue)
-          )
-        )
-      );
-    } else {
-      setFilteredAbbrList(abbrList);
-    }
+  };
+
+  const getFiltratedAbbrList = () => {
+    return Object.fromEntries(
+      Object.entries(abbrList).filter(([abbrKey, _]) =>
+        abbrKey.includes(filterValue)
+      )
+    );
   };
 
   return (
-    <>
+    <div className={interFont.className}>
       <input
         type="text"
         value={filterValue}
         onChange={handleFilterValueChange}
       />
       <ul>
-        {Object.keys(filteredAbbrList).map(
+        {Object.keys(getFiltratedAbbrList()).map(
           (filteredAbbrListItemKey, filteredAbbrListItemIndex) => (
             <li key={filteredAbbrListItemIndex}>
               <h4>{filteredAbbrListItemKey}</h4>
@@ -57,6 +53,6 @@ export default function AbbrListComponent() {
           )
         )}
       </ul>
-    </>
+    </div>
   );
 }

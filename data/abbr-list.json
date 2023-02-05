@@ -4,10 +4,7 @@
   "AI": "Artificial Intelligence",
   "API": "Application Programming Interface",
   "ASCII": "American Standard Code for Information Interchange",
-  "AUTH": [
-    "Authentication",
-    "Authorization"
-  ],
+  "AUTH": ["Authentication", "Authorization"],
   "AUTHN": "Authentication",
   "AUTHZ": "Authorization",
   "AV": "Antivirus",
@@ -35,10 +32,7 @@
   "DBMS": "Database Management System",
   "DEV": "Development",
   "DEVOPS": "Development Operations",
-  "DOS": [
-    "Denial of Service",
-    "Disk Operating System"
-  ],
+  "DOS": ["Denial of Service", "Disk Operating System"],
   "ECMA": "European Computer Manufacturers Association",
   "ENIAC": "Electronic Numerical Integrator And Computer",
   "FOSDEM": "Free and Open source Software Developers' European Meeting",
