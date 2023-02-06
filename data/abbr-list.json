@@ -96,5 +96,9 @@
   "YAML": "YAML Ain't Markup Language",
   "ZSH": "Z Shell",
   "SSR": "Server Side Rendering",
-  "SSG": "Static Site Generation"
+  "SSG": "Static Site Generation",
+  "ERP": "Enterprise Resource Planning",
+  "CRM": "Customer Relationship Management",
+  "SAP": "System Applications and Products in Data Processing",
+  "SDLC": "Software Development Life Cycle"
 }
