@@ -8,23 +8,27 @@ export default function AbbrListComponent() {
   const [abbrList, setAbbrList] = useState({});
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/v1/list')
+    fetch('/api/v1/list')
       .then(response => response.json())
       .then(json => setAbbrList(json));
+
+    fetch('/api/v1/sort')
+      .then(response => response.text())
+      .then(text => console.log(text));
   }, []);
 
-  const handleFilterValueChange = e => {
+  function handleFilterValueChange(e) {
     let newFilterValue = e.target.value.toUpperCase();
     setFilterValue(newFilterValue);
-  };
+  }
 
-  const getFiltratedAbbrList = () => {
+  function getFiltratedAbbrList() {
     return Object.fromEntries(
-      Object.entries(abbrList).filter(([abbrKey, _]) =>
+      Object.entries(abbrList).filter(([abbrKey, abbrValue]) =>
         abbrKey.includes(filterValue)
       )
     );
-  };
+  }
 
   return (
     <div className={interFont.className}>
@@ -36,14 +40,18 @@ export default function AbbrListComponent() {
       <ul>
         {Object.keys(getFiltratedAbbrList()).map(
           (filteredAbbrListItemKey, filteredAbbrListItemIndex) => (
-            <li key={filteredAbbrListItemIndex}>
+            <li key={filteredAbbrListItemKey}>
               <h4>{filteredAbbrListItemKey}</h4>
               {!Array.isArray(abbrList[filteredAbbrListItemKey]) ? (
                 <p>{abbrList[filteredAbbrListItemKey]}</p>
               ) : (
                 abbrList[filteredAbbrListItemKey].map(
                   (multipleSameKeyAbbrFull, multipleSameKeyAbbrIndex) => (
-                    <p key={multipleSameKeyAbbrIndex}>
+                    <p
+                      key={
+                        filteredAbbrListItemKey + '_' + multipleSameKeyAbbrFull
+                      }
+                    >
                       {multipleSameKeyAbbrFull}
                     </p>
                   )
