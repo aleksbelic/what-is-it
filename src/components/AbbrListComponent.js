@@ -12,9 +12,9 @@ export default function AbbrListComponent() {
       .then(response => response.json())
       .then(json => setAbbrList(json));
 
-    fetch('/api/v1/sort')
+    /* fetch('/api/v1/sort')
       .then(response => response.text())
-      .then(text => console.log(text));
+      .then(text => console.log(text));*/
   }, []);
 
   function handleFilterValueChange(e) {
