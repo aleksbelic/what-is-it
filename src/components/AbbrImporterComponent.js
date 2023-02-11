@@ -6,11 +6,8 @@ export default function AbbrImporterComponent() {
       newAbbrKey: e.target.newAbbrKey.value,
       newAbbrValue: e.target.newAbbrValue.value,
     };
-
     const newAbbrJSONdata = JSON.stringify(newAbbrData);
-
     const endpoint = '/api/v1/new';
-
     const options = {
       method: 'POST',
       headers: {
@@ -20,9 +17,8 @@ export default function AbbrImporterComponent() {
     };
 
     const response = await fetch(endpoint, options);
-
     const result = await response.json();
-    alert(`New Abbr data: ${result.data}`);
+    alert(result.msg);
   };
 
   return (
@@ -42,11 +38,11 @@ export default function AbbrImporterComponent() {
           id="new-abbr-value"
           type="text"
           name="newAbbrValue"
-          pattern="[a-zA-Z0-9]{1,50}"
+          pattern="[a-zA-Z0-9 ]{1,50}"
           title="Abbreviation meaning should be digits (0 to 9) or alphabets (a to z), no more than 50 chars."
           required
         />
-        <button type="submit">Add new abbr</button>
+        <button type="submit">Add new abbreviation</button>
       </form>
     </>
   );

@@ -11,10 +11,6 @@ export default function AbbrListComponent() {
     fetch('/api/v1/list')
       .then(response => response.json())
       .then(json => setAbbrList(json));
-
-    /* fetch('/api/v1/sort')
-      .then(response => response.text())
-      .then(text => console.log(text));*/
   }, []);
 
   function handleFilterValueChange(e) {
