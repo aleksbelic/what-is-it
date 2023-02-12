@@ -35,9 +35,9 @@ export default function AbbrImporterComponent() {
           type="text"
           name="newAbbrKey"
           value={newAbbrKey}
-          onChange={e => setNewAbbrKey(e.target.value)}
+          onChange={e => setNewAbbrKey(e.target.value.trim())}
           pattern="[a-zA-Z0-9]{1,20}"
-          title="Abbreviation should be digits (0 to 9) or alphabets (a to z), no more than 20 chars."
+          title="Abbreviation name should be only alphabets (a to z) or digits (0 to 9), no more than 20 chars long."
           data-test="new-abbr-key"
           required
         />
@@ -49,7 +49,7 @@ export default function AbbrImporterComponent() {
           value={newAbbrValue}
           onChange={e => setNewAbbrValue(e.target.value)}
           pattern="[a-zA-Z0-9 ]{1,50}"
-          title="Abbreviation meaning should be digits (0 to 9) or alphabets (a to z), no more than 50 chars."
+          title="Abbreviation meaning should be only alphabets (a to z), digits (0 to 9) or white space, no more than 50 chars long."
           data-test="new-abbr-value"
           required
         />

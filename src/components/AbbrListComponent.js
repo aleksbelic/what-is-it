@@ -1,17 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import {Inter} from '@next/font/google';
+import abbrListJson from '@/data/abbr-list';
 
 const interFont = Inter({subsets: ['latin']});
 
 export default function AbbrListComponent() {
   const [filterValue, setFilterValue] = useState('');
-  const [abbrList, setAbbrList] = useState({});
-
-  useEffect(() => {
-    fetch('/api/v1/list')
-      .then(response => response.json())
-      .then(json => setAbbrList(json));
-  }, []);
+  const [abbrList, setAbbrList] = useState(abbrListJson);
 
   function getFiltratedAbbrList() {
     return Object.fromEntries(
@@ -26,7 +21,7 @@ export default function AbbrListComponent() {
       <input
         type="text"
         value={filterValue}
-        onChange={e => e.target.value.toUpperCase()}
+        onChange={e => setFilterValue(e.target.value.toUpperCase())}
         data-test="abbr-filter"
       />
       <ul>
