@@ -13,11 +13,6 @@ export default function AbbrListComponent() {
       .then(json => setAbbrList(json));
   }, []);
 
-  function handleFilterValueChange(e) {
-    let newFilterValue = e.target.value.toUpperCase();
-    setFilterValue(newFilterValue);
-  }
-
   function getFiltratedAbbrList() {
     return Object.fromEntries(
       Object.entries(abbrList).filter(([abbrKey, abbrValue]) =>
@@ -31,7 +26,7 @@ export default function AbbrListComponent() {
       <input
         type="text"
         value={filterValue}
-        onChange={handleFilterValueChange}
+        onChange={e => e.target.value.toUpperCase()}
         data-test="abbr-filter"
       />
       <ul>
