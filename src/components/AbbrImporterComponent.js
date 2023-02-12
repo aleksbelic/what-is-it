@@ -31,6 +31,7 @@ export default function AbbrImporterComponent() {
           name="newAbbrKey"
           pattern="[a-zA-Z0-9]{1,20}"
           title="Abbreviation should be digits (0 to 9) or alphabets (a to z), no more than 20 chars."
+          data-test="new-abbr-key"
           required
         />
         <label htmlFor="new-abbr-value">New abbreviation meaning:</label>
@@ -40,9 +41,12 @@ export default function AbbrImporterComponent() {
           name="newAbbrValue"
           pattern="[a-zA-Z0-9 ]{1,50}"
           title="Abbreviation meaning should be digits (0 to 9) or alphabets (a to z), no more than 50 chars."
+          data-test="new-abbr-value"
           required
         />
-        <button type="submit">Add new abbreviation</button>
+        <button type="submit" data-test="new-abbr-submit" disabled>
+          Add new abbreviation
+        </button>
       </form>
     </>
   );

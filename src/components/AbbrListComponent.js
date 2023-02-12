@@ -32,6 +32,7 @@ export default function AbbrListComponent() {
         type="text"
         value={filterValue}
         onChange={handleFilterValueChange}
+        data-test="abbr-filter"
       />
       <ul>
         {Object.keys(getFiltratedAbbrList()).map(
