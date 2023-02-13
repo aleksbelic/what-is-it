@@ -21,9 +21,13 @@ export default function AbbrImporterComponent() {
       body: newAbbrJSONdata,
     };
 
-    const response = await fetch(endpoint, options);
-    const result = await response.json();
-    alert(result.msg);
+    fetch(endpoint, options)
+      .then(resJson => resJson.json())
+      .then(res => {
+        alert(res.msg);
+        setNewAbbrKey('');
+        setNewAbbrValue('');
+      });
   };
 
   return (

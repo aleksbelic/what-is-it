@@ -1,7 +1,6 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
-import AbbrListComponent from '@/components/AbbrListComponent';
-import AbbrImporterComponent from '@/components/AbbrImporterComponent';
+import HomeComponent from '@/components/HomeComponent';
 
 export default function Home() {
   return (
@@ -13,9 +12,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        <AbbrImporterComponent />
-        <br />
-        <AbbrListComponent />
+        <HomeComponent />
       </main>
     </>
   );

@@ -1,12 +1,7 @@
-import React, {useState, useEffect} from 'react';
-import {Inter} from '@next/font/google';
-import abbrListJson from '@/data/abbr-list';
+import React, {useState} from 'react';
 
-const interFont = Inter({subsets: ['latin']});
-
-export default function AbbrListComponent() {
+export default function AbbrListComponent({abbrList}) {
   const [filterValue, setFilterValue] = useState('');
-  const [abbrList, setAbbrList] = useState(abbrListJson);
 
   function getFiltratedAbbrList() {
     return Object.fromEntries(
@@ -17,7 +12,7 @@ export default function AbbrListComponent() {
   }
 
   return (
-    <div className={interFont.className}>
+    <>
       <input
         type="text"
         value={filterValue}
@@ -48,6 +43,6 @@ export default function AbbrListComponent() {
           )
         )}
       </ul>
-    </div>
+    </>
   );
 }
