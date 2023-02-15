@@ -12,7 +12,7 @@ export default function AbbrImporterComponent() {
       newAbbrValue: e.target.newAbbrValue.value.trim(),
     };
     const newAbbrJSONdata = JSON.stringify(newAbbrData);
-    const endpoint = '/api/v1/new';
+    const endpoint = '/api/new';
     const options = {
       method: 'POST',
       headers: {

@@ -24,19 +24,15 @@ export default function AbbrListComponent({abbrList}) {
           (filteredAbbrListItemKey, filteredAbbrListItemIndex) => (
             <li key={filteredAbbrListItemKey}>
               <h4>{filteredAbbrListItemKey}</h4>
-              {!Array.isArray(abbrList[filteredAbbrListItemKey]) ? (
-                <p>{abbrList[filteredAbbrListItemKey]}</p>
-              ) : (
-                abbrList[filteredAbbrListItemKey].map(
-                  (multipleSameKeyAbbrFull, multipleSameKeyAbbrIndex) => (
-                    <p
-                      key={
-                        filteredAbbrListItemKey + '_' + multipleSameKeyAbbrFull
-                      }
-                    >
-                      {multipleSameKeyAbbrFull}
-                    </p>
-                  )
+              {abbrList[filteredAbbrListItemKey].map(
+                (multipleSameKeyAbbrFull, multipleSameKeyAbbrIndex) => (
+                  <p
+                    key={
+                      filteredAbbrListItemKey + '_' + multipleSameKeyAbbrFull
+                    }
+                  >
+                    {multipleSameKeyAbbrFull}
+                  </p>
                 )
               )}
             </li>
