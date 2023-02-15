@@ -1,8 +1,7 @@
-import fs from 'fs';
+import sqlite3 from 'sqlite3';
 import path from 'path';
-import abbrList from '@/data/abbr-list';
 
-export default function handler(req, res) {
+export default function newAbbr(req, res) {
   const body = req.body;
   let newAbbrKey = body.newAbbrKey.toUpperCase();
   let newAbbrValue = body.newAbbrValue;
@@ -13,7 +12,8 @@ export default function handler(req, res) {
       .json({msg: '❌ Invalid input, new abbreviation could not be added.'});
   }
 
-  // TODO: validate if duplicate
+  /*
+  // TODO: check if duplicate
   abbrList[newAbbrKey] = newAbbrValue;
 
   let sortedAbbrList = Object.keys(abbrList)
@@ -34,4 +34,29 @@ export default function handler(req, res) {
       }
     }
   );
+  */
+
+  const db = new sqlite3.Database(
+    path.join(process.cwd(), '/data/abbr-list.db'),
+    err => {
+      if (err) {
+        res.status(500).json({msg: `❌ ${err.message}`});
+      }
+    }
+  );
+
+  db.serialize(() => {
+    db.run(`INSERT INTO abbr (name) VALUES ('${newAbbrKey}')`);
+    db.run(`INSERT INTO meaning (text) VALUES ('${newAbbrValue}')`);
+    db.run(
+      `INSERT INTO abbr_meaning (abbr_id, meaning_id) VALUES ((SELECT id FROM abbr WHERE name = '${newAbbrKey}'), (SELECT id FROM meaning WHERE text = '${newAbbrValue}'))`
+    );
+    res.status(200).json({msg: '✔️ New abbreviation successfuly saved.'});
+  });
+
+  db.close(err => {
+    if (err) {
+      res.status(500).json({msg: `❌ ${err.message}`});
+    }
+  });
 }
