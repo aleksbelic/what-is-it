@@ -20,8 +20,14 @@ export default function HomeComponent() {
   return (
     <div className={interFont.className}>
       <AbbrImporterComponent />
-      <br />
-      <AbbrListComponent abbrList={abbrList} />
+      {Object.keys(abbrList).length !== 0 ? (
+        <>
+          <br />
+          <AbbrListComponent abbrList={abbrList} />
+        </>
+      ) : (
+        <p>No abbreviations found.</p>
+      )}
     </div>
   );
 }
