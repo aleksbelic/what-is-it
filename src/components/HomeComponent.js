@@ -9,12 +9,20 @@ export default function HomeComponent() {
   const [abbrList, setAbbrList] = useState({});
 
   useEffect(() => {
-    fetch('/api/abbrs')
-      .then(abbrListJson => abbrListJson.json())
-      .then(abbrListObj => {
-        setAbbrList(abbrListObj);
-      })
-      .catch(err => console.error(err));
+    async function getAbbrsWithMeanings() {
+      try {
+        const fetchResponse = await fetch('/api/abbrs');
+        const fetchedData = await fetchResponse.json();
+        if (fetchResponse.ok) {
+          setAbbrList(fetchedData);
+        } else {
+          throw new Error(fetchedData.errMsg);
+        }
+      } catch (errObj) {
+        alert(errObj.message);
+      }
+    }
+    getAbbrsWithMeanings();
   }, []);
 
   return (
