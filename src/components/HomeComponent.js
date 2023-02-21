@@ -19,7 +19,7 @@ export default function HomeComponent() {
           throw new Error(fetchedData.errMsg);
         }
       } catch (errObj) {
-        alert(errObj.message);
+        alert(`❌ ${errObj.message}`);
       }
     }
     getAbbrsWithMeanings();

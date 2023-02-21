@@ -25,7 +25,7 @@ export default async function getAllAbbrsWithMeanings(req, res) {
 
     await db.close();
     res.status(200).json(allAbbrWithMeanings);
-  } catch (err) {
-    res.status(500).json({errMsg: err.message});
+  } catch (errObj) {
+    res.status(500).json({errMsg: errObj.message});
   }
 }

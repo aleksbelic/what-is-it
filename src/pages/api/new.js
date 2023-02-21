@@ -1,62 +1,37 @@
 import sqlite3 from 'sqlite3';
+import {open} from 'sqlite';
 import path from 'path';
 
-export default function newAbbr(req, res) {
+export default async function addNewAbbr(req, res) {
   const body = req.body;
-  let newAbbrKey = body.newAbbrKey.toUpperCase();
-  let newAbbrValue = body.newAbbrValue;
+  const newAbbrKey = body.newAbbrKey.trim().toUpperCase();
+  const newAbbrValue = body.newAbbrValue.trim();
 
   if (!newAbbrKey || !newAbbrValue) {
     return res
       .status(400)
-      .json({msg: '❌ Invalid input, new abbreviation could not be added.'});
+      .json({errMsg: '❌ Invalid input, new abbreviation could not be added.'});
   }
 
-  /*
-  // TODO: check if duplicate
-  abbrList[newAbbrKey] = newAbbrValue;
+  try {
+    const db = await open({
+      filename: path.join(process.cwd(), '/data/abbr-list.db'),
+      mode: sqlite3.OPEN_READWRITE,
+      driver: sqlite3.Database,
+    });
 
-  let sortedAbbrList = Object.keys(abbrList)
-    .sort()
-    .reduce((unsortedList, currValue) => {
-      unsortedList[currValue] = abbrList[currValue];
-      return unsortedList;
-    }, {});
-
-  fs.writeFile(
-    path.join(process.cwd(), '/data/abbr-list.json'),
-    JSON.stringify(sortedAbbrList),
-    err => {
-      if (err) {
-        res.status(500).json({msg: '❌ New abbreviation could not be saved.'});
-      } else {
-        res.status(200).json({msg: 'New abbreviation successfuly saved.'});
-      }
-    }
-  );
-  */
-
-  const db = new sqlite3.Database(
-    path.join(process.cwd(), '/data/abbr-list.db'),
-    err => {
-      if (err) {
-        res.status(500).json({msg: `❌ ${err.message}`});
-      }
-    }
-  );
-
-  db.serialize(() => {
-    db.run(`INSERT INTO abbr (name) VALUES ('${newAbbrKey}')`);
-    db.run(`INSERT INTO meaning (text) VALUES ('${newAbbrValue}')`);
-    db.run(
-      `INSERT INTO abbr_meaning (abbr_id, meaning_id) VALUES ((SELECT id FROM abbr WHERE name = '${newAbbrKey}'), (SELECT id FROM meaning WHERE text = '${newAbbrValue}'))`
+    await db.exec(
+      'BEGIN TRANSACTION;' +
+        `INSERT INTO abbr (name) VALUES ('${newAbbrKey}');` +
+        `INSERT INTO meaning (text) VALUES ('${newAbbrValue}');` +
+        `INSERT INTO abbr_meaning (abbr_id, meaning_id) VALUES ((SELECT id FROM abbr WHERE name = '${newAbbrKey}'), (SELECT id FROM meaning WHERE text = '${newAbbrValue}'));` +
+        'COMMIT;'
     );
-    res.status(200).json({msg: '✔️ New abbreviation successfuly saved.'});
-  });
 
-  db.close(err => {
-    if (err) {
-      res.status(500).json({msg: `❌ ${err.message}`});
-    }
-  });
+    await db.close();
+
+    res.status(200).json({msg: 'ok'});
+  } catch (errObj) {
+    res.status(500).json({errMsg: errObj.message});
+  }
 }

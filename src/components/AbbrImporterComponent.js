@@ -12,8 +12,7 @@ export default function AbbrImporterComponent() {
       newAbbrValue: e.target.newAbbrValue.value.trim(),
     };
     const newAbbrJSONdata = JSON.stringify(newAbbrData);
-    const endpoint = '/api/new';
-    const options = {
+    const fetchOptions = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -21,13 +20,19 @@ export default function AbbrImporterComponent() {
       body: newAbbrJSONdata,
     };
 
-    fetch(endpoint, options)
-      .then(resJson => resJson.json())
-      .then(res => {
-        alert(res.msg);
+    try {
+      const fetchResponse = await fetch('/api/new', fetchOptions);
+      const fetchedData = await fetchResponse.json();
+      if (fetchResponse.ok) {
         setNewAbbrKey('');
         setNewAbbrValue('');
-      });
+        alert('✔️ New abbreviation added successfuly.');
+      } else {
+        throw new Error(fetchedData.errMsg);
+      }
+    } catch (errObj) {
+      alert(`❌ ${errObj.message}`);
+    }
   };
 
   return (
