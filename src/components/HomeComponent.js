@@ -34,7 +34,7 @@ export default function HomeComponent() {
           <AbbrListComponent abbrList={abbrList} />
         </>
       ) : (
-        <p>No abbreviations found.</p>
+        <p>Loading...</p>
       )}
     </div>
   );

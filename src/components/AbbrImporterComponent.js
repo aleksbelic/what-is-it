@@ -57,8 +57,8 @@ export default function AbbrImporterComponent() {
           name="newAbbrValue"
           value={newAbbrValue}
           onChange={e => setNewAbbrValue(e.target.value)}
-          pattern="[a-zA-Z0-9 ]{1,50}"
-          title="Abbreviation meaning should be only alphabets (a to z), digits (0 to 9) or white space, no more than 50 chars long."
+          pattern="[a-zA-Z0-9 '-]{1,100}"
+          title="Abbreviation meaning should be only alphabets (a to z), digits (0 to 9) or white space, no more than 100 chars long."
           data-test="new-abbr-value"
           required
         />
