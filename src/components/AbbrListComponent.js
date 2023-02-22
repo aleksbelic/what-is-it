@@ -17,7 +17,7 @@ export default function AbbrListComponent({abbrList}) {
         type="text"
         value={filterValue}
         onChange={e => setFilterValue(e.target.value.toUpperCase())}
-        data-test="abbr-filter"
+        data-testid="abbr-filter"
       />
       <ul>
         {Object.keys(getFiltratedAbbrList()).map(

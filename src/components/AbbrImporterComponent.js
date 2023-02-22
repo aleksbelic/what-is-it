@@ -47,7 +47,7 @@ export default function AbbrImporterComponent() {
           onChange={e => setNewAbbrKey(e.target.value.trim())}
           pattern="[a-zA-Z0-9]{1,20}"
           title="Abbreviation name should be only alphabets (a to z) or digits (0 to 9), no more than 20 chars long."
-          data-test="new-abbr-key"
+          data-testid="new-abbr-key"
           required
         />
         <label htmlFor="new-abbr-value">New abbreviation meaning:</label>
@@ -59,12 +59,12 @@ export default function AbbrImporterComponent() {
           onChange={e => setNewAbbrValue(e.target.value)}
           pattern="[a-zA-Z0-9 '-]{1,100}"
           title="Abbreviation meaning should be only alphabets (a to z), digits (0 to 9) or white space, no more than 100 chars long."
-          data-test="new-abbr-value"
+          data-testid="new-abbr-value"
           required
         />
         <button
           type="submit"
-          data-test="new-abbr-submit"
+          data-testid="new-abbr-submit"
           disabled={newAbbrKey === '' || newAbbrValue === ''}
         >
           Add new abbreviation
