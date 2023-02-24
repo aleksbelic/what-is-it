@@ -1,19 +1,17 @@
-import sqlite3 from 'sqlite3';
-import {open} from 'sqlite';
+import Database from 'better-sqlite3';
 import path from 'path';
 
-export default async function getAllAbbrsWithMeanings(req, res) {
+export default function getAllAbbrsWithMeanings(req, res) {
   try {
-    const db = await open({
-      filename: path.join(process.cwd(), '/data/abbr-list.db'),
-      mode: sqlite3.OPEN_READONLY,
-      driver: sqlite3.Database,
+    const db = new Database(path.join(process.cwd(), '/data/abbr-list.db'), {
+      readonly: true,
+      fileMustExist: true,
     });
 
     const getAllAbbrsWithMeaningQuery =
       'SELECT abbr.name, meaning.text from abbr INNER JOIN abbr_meaning ON abbr_meaning.abbr_id = abbr.id INNER JOIN meaning on abbr_meaning.meaning_id = meaning.id ORDER BY abbr.name';
 
-    const abbrsData = await db.all(getAllAbbrsWithMeaningQuery);
+    const abbrsData = db.prepare(getAllAbbrsWithMeaningQuery).all();
     const allAbbrWithMeanings = abbrsData.reduce((acc, abbr) => {
       if (!acc[abbr.name]) {
         acc[abbr.name] = [abbr.text];
@@ -23,7 +21,7 @@ export default async function getAllAbbrsWithMeanings(req, res) {
       return acc;
     }, {});
 
-    await db.close();
+    db.close();
     res.status(200).json(allAbbrWithMeanings);
   } catch (errObj) {
     res.status(500).json({errMsg: errObj.message});
