@@ -37,7 +37,7 @@ $ docker build -t aleksbelic/what-is-it-api https://github.com/aleksbelic/what-i
 Scan new image for vulnerabilities with Snyk:
 
 ```
-$ docker scan aleksbelic/what-is-it-api
+$ docker scout cves aleksbelic/what-is-it-api
 ```
 
 Create new container from image:
