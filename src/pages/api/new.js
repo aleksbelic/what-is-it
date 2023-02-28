@@ -9,7 +9,7 @@ export default function addNewAbbr(req, res) {
   if (!newAbbrKey || !newAbbrValue) {
     return res
       .status(400)
-      .json({errMsg: '❌ Invalid input, new abbreviation could not be added.'});
+      .json({errMsg: 'Invalid input, new abbreviation could not be added.'});
   }
 
   try {

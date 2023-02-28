@@ -1,0 +1,24 @@
+# VCS
+.git
+.gitignore
+
+# Dev
+.next
+.eslintrs.json
+.prettierrc.json
+.prettierignore
+node_modules
+README.md
+npm-debug.log
+
+# Docker
+Dockerfile
+.dockerignore
+
+# Testing
+.scannerwork
+tests
+tests-examples
+playwright-report
+playwright.config.js
+sonar-project.properties
