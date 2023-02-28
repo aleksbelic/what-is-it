@@ -4,7 +4,7 @@
 
 # Dev
 .next
-.eslintrs.json
+#.eslintrc.json
 .prettierrc.json
 .prettierignore
 node_modules
