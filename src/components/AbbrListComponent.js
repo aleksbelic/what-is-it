@@ -12,14 +12,15 @@ export default function AbbrListComponent({abbrList}) {
   }
 
   return (
-    <>
+    <div id="abbr-list-wrapper">
       <input
+        id="abbr-filter"
         type="text"
         value={filterValue}
         onChange={e => setFilterValue(e.target.value.toUpperCase())}
         data-testid="abbr-filter"
       />
-      <ul>
+      <ul id="abbr-list">
         {Object.keys(getFiltratedAbbrList()).map(
           (filteredAbbrListItemKey, filteredAbbrListItemIndex) => (
             <li key={filteredAbbrListItemKey}>
@@ -39,6 +40,6 @@ export default function AbbrListComponent({abbrList}) {
           )
         )}
       </ul>
-    </>
+    </div>
   );
 }

@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export default function AbbrImporterComponent() {
+export default function AbbrImporterComponent({getAbbrsWithMeanings}) {
   const [newAbbrKey, setNewAbbrKey] = useState('');
   const [newAbbrValue, setNewAbbrValue] = useState('');
 
@@ -27,6 +27,7 @@ export default function AbbrImporterComponent() {
         setNewAbbrKey('');
         setNewAbbrValue('');
         alert('✔️ New abbreviation added successfuly.');
+        getAbbrsWithMeanings();
       } else {
         throw new Error(fetchedData.errMsg);
       }
@@ -37,7 +38,7 @@ export default function AbbrImporterComponent() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} autoComplete="off">
         <label htmlFor="new-abbr-key">New abbreviation:</label>
         <input
           id="new-abbr-key"
@@ -57,8 +58,8 @@ export default function AbbrImporterComponent() {
           name="newAbbrValue"
           value={newAbbrValue}
           onChange={e => setNewAbbrValue(e.target.value)}
-          pattern="[a-zA-Z0-9 '-]{1,100}"
-          title="Abbreviation meaning should be only alphabets (a to z), digits (0 to 9) or white space, no more than 100 chars long."
+          pattern="[a-zA-Z0-9 '-:]{1,100}"
+          title="Only valid characters and no more than 100 chars long."
           data-testid="new-abbr-value"
           required
         />
