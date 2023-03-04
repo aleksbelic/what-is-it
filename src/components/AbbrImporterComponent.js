@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import styles from '@/styles/Home.module.css';
 
 export default function AbbrImporterComponent({getAbbrsWithMeanings}) {
   const [newAbbrKey, setNewAbbrKey] = useState('');
@@ -38,10 +39,13 @@ export default function AbbrImporterComponent({getAbbrsWithMeanings}) {
 
   return (
     <>
-      <form onSubmit={handleSubmit} autoComplete="off">
+      <form
+        onSubmit={handleSubmit}
+        autoComplete="off"
+        className={styles.abbrImporter}
+      >
         <label htmlFor="new-abbr-key">New abbreviation:</label>
         <input
-          id="new-abbr-key"
           type="text"
           name="newAbbrKey"
           value={newAbbrKey}
@@ -53,7 +57,6 @@ export default function AbbrImporterComponent({getAbbrsWithMeanings}) {
         />
         <label htmlFor="new-abbr-value">New abbreviation meaning:</label>
         <input
-          id="new-abbr-value"
           type="text"
           name="newAbbrValue"
           value={newAbbrValue}

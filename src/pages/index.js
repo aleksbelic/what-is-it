@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
 import HomeComponent from '@/components/HomeComponent';
+import HeaderComponent from '@/components/HeaderComponent';
+import FooterComponent from '@/components/FooterComponent';
 
-export default function Home() {
+export default function Start() {
   return (
     <>
       <Head>
@@ -11,9 +13,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <HomeComponent />
-      </main>
+
+      <div className={styles.wrapper}>
+        <HeaderComponent />
+        <main className={styles.main}>
+          <HomeComponent />
+        </main>
+        <FooterComponent />
+      </div>
     </>
   );
 }

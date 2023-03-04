@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {Inter} from '@next/font/google';
 import AbbrListComponent from '@/components/AbbrListComponent';
 import AbbrImporterComponent from '@/components/AbbrImporterComponent';
-
-const interFont = Inter({subsets: ['latin']});
 
 export default function HomeComponent() {
   const [abbrList, setAbbrList] = useState({});
@@ -27,16 +24,13 @@ export default function HomeComponent() {
   }, []);
 
   return (
-    <div id="home" className={interFont.className}>
+    <>
       <AbbrImporterComponent getAbbrsWithMeanings={getAbbrsWithMeanings} />
       {Object.keys(abbrList).length !== 0 ? (
-        <>
-          <br />
-          <AbbrListComponent abbrList={abbrList} />
-        </>
+        <AbbrListComponent abbrList={abbrList} />
       ) : (
         <p>Loading...</p>
       )}
-    </div>
+    </>
   );
 }

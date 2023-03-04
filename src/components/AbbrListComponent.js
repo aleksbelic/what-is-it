@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import styles from '@/styles/Home.module.css';
 
 export default function AbbrListComponent({abbrList}) {
   const [filterValue, setFilterValue] = useState('');
@@ -12,15 +13,15 @@ export default function AbbrListComponent({abbrList}) {
   }
 
   return (
-    <div id="abbr-list-wrapper">
+    <div className={styles.abbrListWrapper}>
       <input
-        id="abbr-filter"
+        className={styles.abbrListFilter}
         type="text"
         value={filterValue}
         onChange={e => setFilterValue(e.target.value.toUpperCase())}
-        data-testid="abbr-filter"
+        data-testid="abbr-list-filter"
       />
-      <ul id="abbr-list">
+      <ul className={styles.abbrList}>
         {Object.keys(getFiltratedAbbrList()).map(
           (filteredAbbrListItemKey, filteredAbbrListItemIndex) => (
             <li key={filteredAbbrListItemKey}>
