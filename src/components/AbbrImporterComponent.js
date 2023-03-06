@@ -61,7 +61,7 @@ export default function AbbrImporterComponent({getAbbrsWithMeanings}) {
           name="newAbbrValue"
           value={newAbbrValue}
           onChange={e => setNewAbbrValue(e.target.value)}
-          pattern="[a-zA-Z0-9 '-:]{1,100}"
+          pattern="[a-zA-Z0-9 '-:()]{1,100}"
           title="Only valid characters and no more than 100 chars long."
           data-testid="new-abbr-value"
           required

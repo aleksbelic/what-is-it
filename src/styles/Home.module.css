@@ -2,29 +2,46 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  min-height: 100vh;
+  justify-content: space-between;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
+  justify-content: flex-start;
+  height: calc(100% - 4rem);
 }
 
 .abbrImporter {
-  padding: 1rem 0rem;
+  height: 1rem;
+  padding: 1rem 1rem;
 }
-/*
+
 .abbrListWrapper {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  height: calc(100% - 3rem);
 }
 
 .abbrListFilter {
+  margin: 1rem 1rem;
 }
 
 .abbrList {
+  font-size: 95%;
+  list-style-type: none;
+  margin: 0;
   overflow-y: auto;
 }
-*/
+
+.abbrList > li > h4 {
+  background: black;
+  width: fit-content;
+  padding: 0.2rem 0.4rem;
+  border-radius: 15%;
+  margin-top: 0.7rem;
+  margin-bottom: 0.3rem;
+}
+.abbrList > li > p {
+  margin: 0.2rem;
+}
