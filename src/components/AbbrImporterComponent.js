@@ -38,16 +38,18 @@ export default function AbbrImporterComponent({getAbbrsWithMeanings}) {
   };
 
   return (
-    <>
-      <form
-        onSubmit={handleSubmit}
-        autoComplete="off"
-        className={styles.abbrImporter}
-      >
-        <label htmlFor="new-abbr-key">New abbreviation:</label>
+    <form
+      onSubmit={handleSubmit}
+      autoComplete="off"
+      className={styles.abbrImporter}
+    >
+      <fieldset>
+        <legend>New abbreviation</legend>
+
         <input
           type="text"
           name="newAbbrKey"
+          placeholder="Abbreviation text"
           value={newAbbrKey}
           onChange={e => setNewAbbrKey(e.target.value.trim())}
           pattern="[a-zA-Z0-9]{1,20}"
@@ -55,10 +57,10 @@ export default function AbbrImporterComponent({getAbbrsWithMeanings}) {
           data-testid="new-abbr-key"
           required
         />
-        <label htmlFor="new-abbr-value">New abbreviation meaning:</label>
         <input
           type="text"
           name="newAbbrValue"
+          placeholder="Abbreviation meaning"
           value={newAbbrValue}
           onChange={e => setNewAbbrValue(e.target.value)}
           pattern="[a-zA-Z0-9 '-:()]{1,100}"
@@ -71,9 +73,9 @@ export default function AbbrImporterComponent({getAbbrsWithMeanings}) {
           data-testid="new-abbr-submit"
           disabled={newAbbrKey === '' || newAbbrValue === ''}
         >
-          Add new abbreviation
+          Submit
         </button>
-      </form>
-    </>
+      </fieldset>
+    </form>
   );
 }

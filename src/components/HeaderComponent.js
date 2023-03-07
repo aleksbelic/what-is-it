@@ -4,6 +4,7 @@ import styles from '@/styles/Header.module.css';
 export default function HeaderComponent() {
   return (
     <header className={styles.header}>
+      <b>What is</b>
       <Image
         src="/favicon-invert.png"
         alt="API Logo"
@@ -13,12 +14,10 @@ export default function HeaderComponent() {
         title="What is IT - API"
         priority
       />
-      <span>
-        <b>What is IT - API</b> /&nbsp;
-        <small>
-          <i>by Aleksanchez</i>
-        </small>
-      </span>
+      <b>API</b> &#47;&nbsp;
+      <small>
+        <i>by Aleksanchez</i>
+      </small>
     </header>
   );
 }

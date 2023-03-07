@@ -7,34 +7,42 @@
 
 .main {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  flex-direction: row;
   height: calc(100% - 5rem);
 }
 
-.abbrImporter {
-  height: 1rem;
-  padding: 1rem 1rem;
+.main .abbrImporter {
+  flex: 1;
+  height: fit-content;
+  margin-left: 1rem;
 }
 
-.abbrListWrapper {
+.main .abbrImporter fieldset {
+  gap: 1rem;
   display: flex;
   flex-direction: column;
-  height: calc(100% - 3rem);
+  border-radius: 2%;
+  border-color: #fe6f27;
 }
 
-.abbrListFilter {
+.main .abbrListWrapper {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.main .abbrListFilter {
   margin: 1rem 1rem;
 }
 
-.abbrList {
+.main .abbrList {
   font-size: 95%;
   list-style-type: none;
   margin: 0;
   overflow-y: auto;
 }
 
-.abbrList > li > h4 {
+.main .abbrList > li > h4 {
   background: black;
   width: fit-content;
   padding: 0.2rem 0.4rem;
@@ -42,6 +50,7 @@
   margin-top: 0.7rem;
   margin-bottom: 0.3rem;
 }
-.abbrList > li > p {
+
+.main .abbrList > li > p {
   margin: 0.2rem;
 }
