@@ -18,6 +18,7 @@ export default function AbbrListComponent({abbrList}) {
         className={styles.abbrListFilter}
         type="text"
         value={filterValue}
+        placeholder="Search..."
         onChange={e => setFilterValue(e.target.value.toUpperCase())}
         data-testid="abbr-list-filter"
       />

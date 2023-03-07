@@ -8,31 +8,33 @@
 .main {
   display: flex;
   flex-direction: row;
-  height: calc(100% - 5rem);
+  height: calc(100% - 5.25rem);
 }
 
 .main .abbrImporter {
   flex: 1;
   height: fit-content;
-  margin-left: 1rem;
+  margin: 1rem;
 }
 
 .main .abbrImporter fieldset {
   gap: 1rem;
   display: flex;
   flex-direction: column;
-  border-radius: 2%;
-  border-color: #fe6f27;
+  border: none;
 }
 
 .main .abbrListWrapper {
   flex: 3;
   display: flex;
   flex-direction: column;
+  border-left: #fe6f27 0.1rem dashed;
+  padding-left: 2rem;
 }
 
 .main .abbrListFilter {
-  margin: 1rem 1rem;
+  max-width: 10rem;
+  margin: 1rem 1rem 1rem 0;
 }
 
 .main .abbrList {
@@ -40,6 +42,7 @@
   list-style-type: none;
   margin: 0;
   overflow-y: auto;
+  padding-left: 0;
 }
 
 .main .abbrList > li > h4 {

@@ -14,7 +14,7 @@ export default function HeaderComponent() {
         title="What is IT - API"
         priority
       />
-      <b>API</b> &#47;&nbsp;
+      <b>API</b> &nbsp;&#47;&nbsp;
       <small>
         <i>by Aleksanchez</i>
       </small>
