@@ -23,6 +23,15 @@
   flex-direction: column;
   border: none;
 }
+.main .abbrImporter input,
+.main .abbrImporter button[type='submit'] {
+  padding: 0.3rem;
+}
+.main .abbrImporter button[type='submit'] {
+  color: #fff;
+  background-color: #696969;
+  cursor: pointer;
+}
 
 .main .abbrListWrapper {
   flex: 3;
@@ -34,6 +43,7 @@
 
 .main .abbrListFilter {
   max-width: 10rem;
+  padding: 0.3rem;
   margin: 1rem 1rem 1rem 0;
 }
 

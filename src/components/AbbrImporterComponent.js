@@ -73,7 +73,7 @@ export default function AbbrImporterComponent({getAbbrsWithMeanings}) {
           data-testid="new-abbr-submit"
           disabled={newAbbrKey === '' || newAbbrValue === ''}
         >
-          Submit
+          <b>SUBMIT</b>
         </button>
       </fieldset>
     </form>
