@@ -5,9 +5,14 @@ body {
   color: #fe6f27;
 }
 
-header,
+header {
+  height: 2rem;
+}
 footer {
   height: 1rem;
+}
+header,
+footer {
   padding: 0.5rem;
   margin: 0;
 }
