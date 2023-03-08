@@ -1,3 +1,3 @@
 export default function handler(req, res) {
-  res.status(200).json({message: 'Hi :)'});
+  res.status(200).json({message: 'Welcome to What is IT - API'});
 }

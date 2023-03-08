@@ -1,10 +1,13 @@
 import React, {useState} from 'react';
 import styles from '@/styles/Home.module.css';
+import AbbrCounterComponent from '@/components/AbbrCounterComponent';
 
 export default function AbbrListComponent({abbrList}) {
   const [filterValue, setFilterValue] = useState('');
+  let filteredAbbrList = getFilteredAbbrList();
+  let abbrCount = Object.keys(filteredAbbrList).length;
 
-  function getFiltratedAbbrList() {
+  function getFilteredAbbrList() {
     return Object.fromEntries(
       Object.entries(abbrList).filter(([abbrKey, abbrValue]) =>
         abbrKey.includes(filterValue)
@@ -12,18 +15,27 @@ export default function AbbrListComponent({abbrList}) {
     );
   }
 
+  function handleFilterChange(e) {
+    setFilterValue(e.target.value.toUpperCase());
+    filteredAbbrList = getFilteredAbbrList();
+    abbrCount = Object.keys(filteredAbbrList).length;
+  }
+
   return (
     <div className={styles.abbrListWrapper}>
-      <input
-        className={styles.abbrListFilter}
-        type="text"
-        value={filterValue}
-        placeholder="Search..."
-        onChange={e => setFilterValue(e.target.value.toUpperCase())}
-        data-testid="abbr-list-filter"
-      />
+      <div>
+        <input
+          className={styles.abbrListFilter}
+          type="text"
+          value={filterValue}
+          placeholder="Search..."
+          onChange={handleFilterChange}
+          data-testid="abbr-list-filter"
+        />
+        <AbbrCounterComponent abbrCount={abbrCount} />
+      </div>
       <ul className={styles.abbrList}>
-        {Object.keys(getFiltratedAbbrList()).map(
+        {Object.keys(filteredAbbrList).map(
           (filteredAbbrListItemKey, filteredAbbrListItemIndex) => (
             <li key={filteredAbbrListItemKey}>
               <h4>{filteredAbbrListItemKey}</h4>
