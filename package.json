@@ -11,7 +11,10 @@
     "lint": "next lint",
     "pretty": "npx prettier --write .",
     "e2e": "npx playwright test",
-    "e2e-report": "npx playwright show-report"
+    "e2e-report": "npx playwright show-report",
+    "docker-build-image": "docker build -t aleksbelic/what-is-it-api .",
+    "docker-check-image": "docker scout cves aleksbelic/what-is-it-api",
+    "docker-push-image": "docker push aleksbelic/what-is-it-api"
   },
   "dependencies": {
     "@next/font": "13.1.6",
