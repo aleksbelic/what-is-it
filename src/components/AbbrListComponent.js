@@ -10,13 +10,13 @@ export default function AbbrListComponent({abbrList}) {
   function getFilteredAbbrList() {
     return Object.fromEntries(
       Object.entries(abbrList).filter(([abbrKey, abbrValue]) =>
-        abbrKey.includes(filterValue)
+        abbrKey.toUpperCase().includes(filterValue.toUpperCase())
       )
     );
   }
 
   function handleFilterChange(e) {
-    setFilterValue(e.target.value.toUpperCase());
+    setFilterValue(e.target.value);
     filteredAbbrList = getFilteredAbbrList();
     abbrCount = Object.keys(filteredAbbrList).length;
   }

@@ -3,7 +3,7 @@ import path from 'path';
 
 export default function addNewAbbr(req, res) {
   const body = req.body;
-  const newAbbrKey = body.newAbbrKey.trim().toUpperCase();
+  const newAbbrKey = body.newAbbrKey.trim();
   const newAbbrValue = body.newAbbrValue.trim();
 
   if (!newAbbrKey || !newAbbrValue) {
