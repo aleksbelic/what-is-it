@@ -23,7 +23,8 @@ export default function AbbrListComponent({abbrList}) {
 
   return (
     <div className={styles.abbrListWrapper}>
-      <div>
+      <div className={styles.abbrListFilterWrapper}>
+        <AbbrCounterComponent abbrCount={abbrCount} />
         <input
           className={styles.abbrListFilter}
           type="text"
@@ -32,7 +33,6 @@ export default function AbbrListComponent({abbrList}) {
           onChange={handleFilterChange}
           data-testid="abbr-list-filter"
         />
-        <AbbrCounterComponent abbrCount={abbrCount} />
       </div>
       <ul className={styles.abbrList}>
         {Object.keys(filteredAbbrList).map(

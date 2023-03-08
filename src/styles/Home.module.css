@@ -33,18 +33,22 @@
   cursor: pointer;
 }
 
+.main .abbrListFilterWrapper {
+  text-align: right;
+}
+
+.main .abbrListFilter {
+  max-width: 10rem;
+  padding: 0.3rem;
+  margin: 1rem;
+}
+
 .main .abbrListWrapper {
   flex: 3;
   display: flex;
   flex-direction: column;
   border-left: #fe6f27 0.1rem dashed;
   padding-left: 2rem;
-}
-
-.main .abbrListFilter {
-  max-width: 10rem;
-  padding: 0.3rem;
-  margin: 1rem 1rem 1rem 0;
 }
 
 .main .abbrList {
