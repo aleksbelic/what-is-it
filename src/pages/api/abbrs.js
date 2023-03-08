@@ -9,7 +9,7 @@ export default function getAllAbbrsWithMeanings(req, res) {
     });
 
     const getAllAbbrsWithMeaningQuery =
-      'SELECT abbr.name, meaning.text from abbr INNER JOIN abbr_meaning ON abbr_meaning.abbr_id = abbr.id INNER JOIN meaning on abbr_meaning.meaning_id = meaning.id ORDER BY abbr.name';
+      'SELECT abbr.name, meaning.text from abbr INNER JOIN abbr_meaning ON abbr_meaning.abbr_id = abbr.id INNER JOIN meaning on abbr_meaning.meaning_id = meaning.id ORDER BY abbr.name COLLATE NOCASE ASC';
 
     const abbrsData = db.prepare(getAllAbbrsWithMeaningQuery).all();
     const allAbbrWithMeanings = abbrsData.reduce((acc, abbr) => {
