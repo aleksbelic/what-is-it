@@ -9,8 +9,8 @@ export default function AbbrListComponent({abbrList}) {
 
   function getFilteredAbbrList() {
     return Object.fromEntries(
-      Object.entries(abbrList).filter(([abbrKey, abbrValue]) =>
-        abbrKey.toUpperCase().includes(filterValue.toUpperCase())
+      Object.entries(abbrList).filter(([abbrName, abbrMeaning]) =>
+        abbrName.toUpperCase().includes(filterValue.toUpperCase())
       )
     );
   }
@@ -36,17 +36,17 @@ export default function AbbrListComponent({abbrList}) {
       </div>
       <ul className={styles.abbrList}>
         {Object.keys(filteredAbbrList).map(
-          (filteredAbbrListItemKey, filteredAbbrListItemIndex) => (
-            <li key={filteredAbbrListItemKey}>
-              <h4>{filteredAbbrListItemKey}</h4>
-              {abbrList[filteredAbbrListItemKey].map(
-                (multipleSameKeyAbbrFull, multipleSameKeyAbbrIndex) => (
+          (filteredAbbrListItemName, filteredAbbrListItemIndex) => (
+            <li key={filteredAbbrListItemName}>
+              <h4>{filteredAbbrListItemName}</h4>
+              {abbrList[filteredAbbrListItemName].map(
+                (multipleSameNameAbbrFull, multipleSameNameAbbrIndex) => (
                   <p
                     key={
-                      filteredAbbrListItemKey + '_' + multipleSameKeyAbbrFull
+                      filteredAbbrListItemName + '_' + multipleSameNameAbbrFull
                     }
                   >
-                    {multipleSameKeyAbbrFull}
+                    {multipleSameNameAbbrFull}
                   </p>
                 )
               )}

@@ -3,10 +3,10 @@ import path from 'path';
 
 export default function addNewAbbr(req, res) {
   const body = req.body;
-  const newAbbrKey = body.newAbbrKey.trim();
-  const newAbbrValue = body.newAbbrValue.trim();
+  const newAbbrName = body.newAbbrName.trim();
+  const newAbbrMeaning = body.newAbbrMeaning.trim();
 
-  if (!newAbbrKey || !newAbbrValue) {
+  if (!newAbbrName || !newAbbrMeaning) {
     return res
       .status(400)
       .json({errMsg: 'Invalid input, new abbreviation could not be added.'});
@@ -18,17 +18,20 @@ export default function addNewAbbr(req, res) {
       fileMustExist: true,
     });
 
+    // check if abbr already exists
+    //let abbrThatAlreadyExists = db.prepare('SELECT * from abbr WHERE name = ?').run()
+
     const transaction = db.transaction(() => {
-      db.prepare('INSERT INTO abbr (name) VALUES (?)').run(newAbbrKey);
-      db.prepare('INSERT INTO meaning (text) VALUES (?)').run(newAbbrValue);
+      db.prepare('INSERT INTO abbr (name) VALUES (?)').run(newAbbrName);
+      db.prepare('INSERT INTO meaning (text) VALUES (?)').run(newAbbrMeaning);
       const newAbbrId = db
         .prepare('SELECT id FROM abbr WHERE name = ?')
         .pluck()
-        .get(newAbbrKey);
+        .get(newAbbrName);
       const newMeaningId = db
         .prepare('SELECT id FROM meaning WHERE text = ? ORDER by id DESC')
         .pluck()
-        .get(newAbbrValue);
+        .get(newAbbrMeaning);
       db.prepare(
         'INSERT INTO abbr_meaning (abbr_id, meaning_id) VALUES (?, ?)'
       ).run(newAbbrId, newMeaningId);
