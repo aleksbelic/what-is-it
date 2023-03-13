@@ -18,13 +18,24 @@ export default function getMeaningForAbbrWithName(req, res) {
 
     let abbrId = db
       .prepare('SELECT id FROM abbr WHERE UPPER(name) = ?')
+      .pluck()
       .get(abbrName.toUpperCase());
 
     if (typeof abbrId === 'undefined') {
-      res.status(200).json({message: `Abbreviation ${abbrName} not found.`});
+      res.status(404).json({errMsg: `Abbreviation ${abbrName} not found.`});
     } else {
-      // TODO
-      res.status(200).json({message: 'ok'});
+      let abbrMeaning = db
+        .prepare(
+          'SELECT meaning.text FROM meaning INNER JOIN abbr_meaning ON abbr_meaning.meaning_id = meaning.id WHERE abbr_meaning.abbr_id = ? ORDER BY meaning.text COLLATE NOCASE ASC'
+        )
+        .pluck()
+        .all(abbrId);
+
+      if (abbrMeaning.length === 1) {
+        abbrMeaning = abbrMeaning[0];
+      }
+
+      return res.status(200).json({meaning: abbrMeaning});
     }
 
     db.close();

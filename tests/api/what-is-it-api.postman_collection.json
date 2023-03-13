@@ -45,11 +45,11 @@
           "listen": "test",
           "script": {
             "exec": [
-              "pm.test('Status code is 200', () => {\r",
-              "    pm.response.to.have.status(200);\r",
+              "pm.test('Status code is 404', () => {\r",
+              "    pm.response.to.have.status(404);\r",
               "});\r",
               "pm.test('Body is correct', () => {\r",
-              "    pm.response.to.have.body({'message': 'Abbreviation xxx not found.'});\r",
+              "    pm.response.to.have.body({'errMsg': 'Abbreviation xxx not found.'});\r",
               "});\r",
               "pm.test('Response time is less than 200ms', () => {\r",
               "    pm.expect(pm.response.responseTime).to.be.below(200);\r",
