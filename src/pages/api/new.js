@@ -18,8 +18,7 @@ export default function addNewAbbr(req, res) {
       fileMustExist: true,
     });
 
-    // check if abbr already exists
-    //let abbrThatAlreadyExists = db.prepare('SELECT * from abbr WHERE name = ?').run()
+    // TODO: check if abbr already exists
 
     const transaction = db.transaction(() => {
       db.prepare('INSERT INTO abbr (name) VALUES (?)').run(newAbbrName);
@@ -39,8 +38,8 @@ export default function addNewAbbr(req, res) {
     transaction();
     db.close();
 
-    res.status(200).json({msg: 'ok'});
+    return res.status(200).json({msg: 'ok'});
   } catch (errObj) {
-    res.status(500).json({errMsg: errObj.message});
+    return res.status(500).json({errMsg: errObj.message});
   }
 }
