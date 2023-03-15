@@ -2,6 +2,24 @@
 
 Welcome to `What is IT` - a _user-friendly API for deciphering abbreviated IT terms_.
 
+---
+
+**API endpoint**:
+<br>
+https://what-is-it-api.vercel.app/api/{SOME-IT-ABBREVIATION}
+
+Example:
+<br>
+https://what-is-it-api.vercel.app/api/xss
+<br>
+should return the abbreviation's meaning as following JSON:
+<br>
+`{"meaning":"Cross Site Scripting"}`
+
+---
+
+## DEV
+
 Start API server (**production** version):
 
 ```
@@ -19,8 +37,6 @@ Format code with Prettier:
 ```
 $ npm run pretty
 ```
-
-## DEV
 
 Build Docker image from project root:
 
