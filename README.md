@@ -20,12 +20,6 @@ should return the abbreviation's meaning as following JSON:
 
 ## DEV
 
-Start API server (**production** version):
-
-```
-$ npm start
-```
-
 Start API server (**development** version):
 
 ```
@@ -78,4 +72,16 @@ Publish image changes to Docker Hub (make sure you're logged in with `docker log
 
 ```
 $ docker push aleksbelic/what-is-it-api
+```
+
+Generate an optimized version of application for production:
+
+```
+$ npm build
+```
+
+Start API server (**production** version):
+
+```
+$ npm start
 ```
