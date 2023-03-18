@@ -12,9 +12,15 @@ Example:
 <br>
 https://what-is-it-api.vercel.app/api/xss
 <br>
-should return the abbreviation's meaning as following JSON:
-<br>
+should return the abbreviation's meaning as JSON:
 `{"meaning":"Cross Site Scripting"}`
+<br>
+Don't forget that some abbreviations could have multiple meanings, e.g.:
+<br>
+https://what-is-it-api.vercel.app/api/dos
+<br>
+in which case we expect JSON array:
+`{"meaning":["Denial of Service","Disk Operating System"]}`
 
 ---
 
