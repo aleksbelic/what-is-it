@@ -50,7 +50,7 @@ Image can also be built using public GitHub repo:
 $ docker build -t aleksbelic/what-is-it-api https://github.com/aleksbelic/what-is-it-api.git
 ```
 
-Scan new image for vulnerabilities with Snyk:
+Scan new image for vulnerabilities:
 
 ```
 $ docker scout cves aleksbelic/what-is-it-api
