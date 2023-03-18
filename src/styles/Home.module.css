@@ -7,12 +7,11 @@
 
 .main {
   display: flex;
-  flex-direction: row;
-  height: calc(100% - 5.25rem);
+  flex-direction: column;
+  height: calc(100% - 4.45rem);
 }
 
 .main .abbrImporter {
-  flex: 1;
   height: fit-content;
   margin: 1rem;
 }
@@ -34,21 +33,21 @@
 }
 
 .main .abbrListFilterWrapper {
+  margin: 1rem;
   text-align: right;
 }
 
 .main .abbrListFilter {
   max-width: 10rem;
   padding: 0.3rem;
-  margin: 1rem;
+  margin: 0 1rem;
 }
 
 .main .abbrListWrapper {
-  flex: 3;
   display: flex;
   flex-direction: column;
-  border-left: #fe6f27 0.1rem dashed;
-  padding-left: 2rem;
+  border-top: #fe6f27 0.1rem dashed;
+  overflow-y: auto;
 }
 
 .main .abbrList {
@@ -56,7 +55,7 @@
   list-style-type: none;
   margin: 0;
   overflow-y: auto;
-  padding-left: 0;
+  padding-left: 2rem;
 }
 
 .main .abbrList > li > h4 {
@@ -70,4 +69,25 @@
 
 .main .abbrList > li > p {
   margin: 0.2rem;
+}
+
+@media screen and (min-width: 768px) {
+  .main {
+    flex-direction: row;
+  }
+
+  .main .abbrImporter {
+    flex: 1;
+  }
+
+  .main .abbrListFilter {
+    margin-right: 0;
+  }
+
+  .main .abbrListWrapper {
+    flex: 3;
+    flex-direction: column;
+    border-top: none;
+    border-left: #fe6f27 0.1rem dashed;
+  }
 }
