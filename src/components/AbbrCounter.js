@@ -1,4 +1,4 @@
-export default function AbbrCounterComponent({abbrCount}) {
+export default function AbbrCounter({abbrCount}) {
   return (
     <small>
       <i>

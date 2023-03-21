@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import AbbrListComponent from '@/components/AbbrListComponent';
-import AbbrImporterComponent from '@/components/AbbrImporterComponent';
+import AbbrList from '@/components/AbbrList';
+import AbbrImporter from '@/components/AbbrImporter';
+import styles from '@/styles/Home.module.css';
 
-export default function HomeComponent() {
+export default function Home() {
   const [abbrList, setAbbrList] = useState({});
 
   async function getAbbrsWithMeanings() {
@@ -25,11 +26,14 @@ export default function HomeComponent() {
 
   return (
     <>
-      <AbbrImporterComponent getAbbrsWithMeanings={getAbbrsWithMeanings} />
+      <AbbrImporter getAbbrsWithMeanings={getAbbrsWithMeanings} />
       {Object.keys(abbrList).length !== 0 ? (
-        <AbbrListComponent abbrList={abbrList} />
+        <AbbrList abbrList={abbrList} />
       ) : (
-        <p>Loading...</p>
+        <div className={styles.loaderWrapper}>
+          <span className={styles.spinner}></span>
+          <span>Loading...</span>
+        </div>
       )}
     </>
   );

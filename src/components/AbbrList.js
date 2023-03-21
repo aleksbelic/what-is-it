@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import styles from '@/styles/Home.module.css';
-import AbbrCounterComponent from '@/components/AbbrCounterComponent';
+import AbbrCounter from '@/components/AbbrCounter';
 
-export default function AbbrListComponent({abbrList}) {
+export default function AbbrList({abbrList}) {
   const [filterValue, setFilterValue] = useState('');
   let filteredAbbrList = getFilteredAbbrList();
   let abbrCount = Object.keys(filteredAbbrList).length;
@@ -24,7 +24,7 @@ export default function AbbrListComponent({abbrList}) {
   return (
     <div className={styles.abbrListWrapper}>
       <div className={styles.abbrListFilterWrapper}>
-        <AbbrCounterComponent abbrCount={abbrCount} />
+        <AbbrCounter abbrCount={abbrCount} />
         <input
           className={styles.abbrListFilter}
           type="text"

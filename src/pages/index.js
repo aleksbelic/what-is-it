@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import styles from '@/styles/Home.module.css';
-import HomeComponent from '@/components/HomeComponent';
-import HeaderComponent from '@/components/HeaderComponent';
-import FooterComponent from '@/components/FooterComponent';
+import Home from '@/components/Home';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function Start() {
   return (
@@ -15,11 +15,11 @@ export default function Start() {
       </Head>
 
       <div className={styles.wrapper}>
-        <HeaderComponent />
+        <Header />
         <main className={styles.main}>
-          <HomeComponent />
+          <Home />
         </main>
-        <FooterComponent />
+        <Footer />
       </div>
     </>
   );

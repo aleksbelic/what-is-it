@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import styles from '@/styles/Home.module.css';
 
-export default function AbbrImporterComponent({getAbbrsWithMeanings}) {
+export default function AbbrImporter({getAbbrsWithMeanings}) {
   const [newAbbrName, setNewAbbrName] = useState('');
   const [newAbbrMeaning, setNewAbbrMeaning] = useState('');
 

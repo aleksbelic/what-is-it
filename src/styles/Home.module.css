@@ -11,6 +11,45 @@
   height: calc(100% - 4.45rem);
 }
 
+.main .loaderWrapper {
+  flex: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-style: italic;
+}
+
+.main .loaderWrapper .spinner {
+  border: 0.3rem solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 0.3rem solid #fe6f27;
+  width: 1.9rem;
+  height: 1.9rem;
+  -webkit-animation: spinner-animation 2s ease-in-out infinite; /* Safari */
+  animation: spinner-animation 2s ease-in-out infinite;
+  margin-bottom: 0.5rem;
+}
+
+/* Safari */
+@-webkit-keyframes spinner-animation {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 .main .abbrImporter {
   height: fit-content;
   margin: 1rem;
