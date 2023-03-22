@@ -10,8 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "pretty": "npx prettier --write .",
-    "e2e": "npx playwright test",
-    "e2e-report": "npx playwright show-report",
+    "cy:open": "npx cypress open",
     "docker-build-image": "docker build -t aleksbelic/what-is-it-api .",
     "docker-check-image": "docker scout cves aleksbelic/what-is-it-api",
     "docker-push-image": "docker push aleksbelic/what-is-it-api"
@@ -26,7 +25,7 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@playwright/test": "^1.30.0",
+    "cypress": "^12.8.1",
     "eslint-config-prettier": "^8.6.0"
   }
 }
