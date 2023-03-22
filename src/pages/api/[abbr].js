@@ -11,10 +11,13 @@ export default function getMeaningForAbbrWithName(req, res) {
   const abbrName = req.query.abbr;
 
   try {
-    const db = new Database(path.join(process.cwd(), '/data/abbr-list.db'), {
-      readonly: false,
-      fileMustExist: true,
-    });
+    const db = new Database(
+      path.join(process.cwd(), `/data/${process.env.DB_FILE_NAME}`),
+      {
+        readonly: false,
+        fileMustExist: true,
+      }
+    );
 
     let abbrId = db
       .prepare('SELECT id FROM abbr WHERE UPPER(name) = ?')

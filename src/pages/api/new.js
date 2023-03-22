@@ -13,10 +13,13 @@ export default function addNewAbbr(req, res) {
   }
 
   try {
-    const db = new Database(path.join(process.cwd(), '/data/abbr-list.db'), {
-      readonly: false,
-      fileMustExist: true,
-    });
+    const db = new Database(
+      path.join(process.cwd(), `/data/${process.env.DB_FILE_NAME}`),
+      {
+        readonly: false,
+        fileMustExist: true,
+      }
+    );
 
     // TODO: check if abbr already exists
 
