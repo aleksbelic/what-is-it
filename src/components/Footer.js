@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <small>
-        Copyright &copy; Aleksandar Belic {new Date(Date.now()).getFullYear()}
+        Copyright &copy; Aleksandar Belic, {new Date(Date.now()).getFullYear()}
       </small>
     </footer>
   );
