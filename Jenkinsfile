@@ -24,7 +24,7 @@ pipeline {
     stage('Install dependencies') {
       steps {
         sh 'cd repo && npm install'
-        sh 'cd repo && npx playwright install' // install browsers
+        //sh 'cd repo && npx playwright install' // install browsers
       }
     }
     stage('Start app') {
